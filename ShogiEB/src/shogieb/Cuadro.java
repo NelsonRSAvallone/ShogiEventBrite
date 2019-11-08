@@ -21,6 +21,10 @@ public abstract class Cuadro {
     {
     return tipo;
     }
+
+    public String getColor() {
+        return color;
+    }
     
     public abstract boolean checkMovimiento (int [] moverDesde, int[]moverHasta, String jugadorColor, boolean testRey);
 }
