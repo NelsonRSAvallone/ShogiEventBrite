@@ -70,22 +70,22 @@ public abstract class Tablero {
        //Empezar el loop del main
        while(true){
 			
-			for(int runNum = 1; runNum <= 2; runNum++){ //run for each player
-				dibujar(); //show board
+			for(int runNum = 1; runNum <= 2; runNum++){ //movimiento para cada jugador
+				dibujar(); //mostrar Tablero
 				
 				int move[][] = new int[2][2];
 				
 				while(true){
 				
-					if(runNum == 1){ //primera corrida
+					if(runNum == 1){ //primera corrida jugador blanco
 						move = blancoPly.getMove();
 					}
-					else{ //segunda corrida
+					else{ //segunda corrida, si no es blanco es negro
 						move = negroPly.getMove();
 					}
 				
-					if(move[0][0] == -1){ //restarting loop if input is wrong
-						System.out.println("Invalid location. Try again.");
+					if(move[0][0] == -1){ //restartear el loop si la entrada esta mal
+						System.out.println("Movimiento Invalido, Intente de nuevo!");
 						continue;
 					}
 					
@@ -115,14 +115,14 @@ public abstract class Tablero {
 						}
 						break;
 					}
-					System.out.println("Invalid move. Try again."); //not printed if break is called
+					System.out.println("Movimiento Invalido, Intente de nuevo!"); //no se imprime si se llama al break
 				}
 			}
 		}
        
        }//fin main
        //chek jake-------------------------------------------------------------------------------
-       private static String checkForCheckOrMate(String plyColor){ //check for win or check
+       private static String checkForCheckOrMate(String plyColor){ //chekeo de ganador o Jaque
 		for(int kingY = 0; kingY < 9; kingY++){
 			for(int kingX = 0; kingX < 9; kingX++){
 				Cuadro kingSquare = tablero[kingY][kingX];
@@ -158,7 +158,7 @@ public abstract class Tablero {
 	}
        //--------------------------------------------------------------------------------
        
-       private static void update(int[] origLoc, int[] newLoc){ //setting new location to piece type and setting old location to blank
+       private static void update(int[] origLoc, int[] newLoc){ //seteando la nueva posicion de la pieza y seteando el lugar viejo a blank
 		tablero[newLoc[1]][newLoc[0]] = tablero[origLoc[1]][origLoc[0]];
 		tablero[origLoc[1]][origLoc[0]] = new EspacioEnBlanco();
 	}
