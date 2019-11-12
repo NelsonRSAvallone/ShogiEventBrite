@@ -13,7 +13,7 @@ public class Torre extends Pieza {
     public Torre(String colorIn) {
 		super(colorIn, "torre");
 		
-		if(color == "white"){
+		if(color == "blanco"){
 			simbolo = "^To";
 		}
 		else{
