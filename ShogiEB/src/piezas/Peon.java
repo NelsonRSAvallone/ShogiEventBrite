@@ -13,10 +13,10 @@ public Peon(String colorIn) {
 		super(colorIn, "peon");
 		
 		if(color == "blanco"){
-			simbolo = "bPa";
+			simbolo = "^Pe";
 		}
 		else{
-			simbolo = "nPa";
+			simbolo = "vPe";
 		}
 	}
 
@@ -27,7 +27,7 @@ public Peon(String colorIn) {
 		int moverHastaX = moverHastaReq[0];
 		int moverHastaY = moverHastaReq[1];
 		
-		
+		//Esta variable me va a servir para indicar si el que se mueve es el blanco o el negro
 		int moveAdelanteUno;
 		
 		
@@ -49,7 +49,7 @@ public Peon(String colorIn) {
 			moveAdelanteUno = 1;
 			
 		}
-			
+			//movimiento del peon y tambien permite que se coman.
 		if(moverHastaY == moverDesdeY + moveAdelanteUno ){
 			
                     if(moverHastaX == moverDesdeX + moveAdelanteUno) {

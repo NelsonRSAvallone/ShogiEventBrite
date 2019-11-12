@@ -3,6 +3,7 @@ package shogieb;
 
 import java.util.Scanner;
 import piezas.Peon;
+import piezas.Torre;
 
 /**
  *
@@ -35,6 +36,13 @@ public abstract class Tablero {
 		for(int i = 0; i < 9; i++){
 			tablero[6][i] = new Peon("blanco");
 		}
+                //pintar torres
+                for (int i = 0; i < 10; i++) {
+                        tablero[1][1]= new Torre("negro");
+                }
+                for (int i = 0; i < 10; i++) {
+                        tablero[7][7]= new Torre("blanco");
+                }
                
         
         }
