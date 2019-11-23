@@ -5,6 +5,7 @@ import java.util.Scanner;
 import piezas.Alfil;
 import piezas.Lancero;
 import piezas.Peon;
+import piezas.Rey;
 import piezas.Torre;
 
 /**
@@ -44,7 +45,9 @@ public abstract class Tablero {
                         //Lanceros blancos
                         tablero[8][0]= new Lancero("blanco");
                         tablero[8][8]= new Lancero("blanco");
-                        
+                        //Rey
+                        tablero[0][4]=new Rey ("negro");
+                        tablero[8][4]=new Rey ("blanco");
 		}
         }      
 
@@ -75,7 +78,7 @@ public abstract class Tablero {
 		Jugador negroPly = new Jugador(ply2Nombre, "negro");
 		
 		setup(); //obtener el tablero
-       
+       try{
        //Empezar el loop del main
        while(true){
 			
@@ -104,7 +107,7 @@ public abstract class Tablero {
 				
 					boolean checkValue;
 					if(runNum == 1){
-						checkValue = fromSquare.checkMovimiento(moveFrom, moveTo, "blanco", false); //checking for pawn move validity
+						checkValue = fromSquare.checkMovimiento(moveFrom, moveTo, "blanco", false); 
 					}
 					else{
 						checkValue = fromSquare.checkMovimiento(moveFrom, moveTo, "negro", false);
@@ -128,33 +131,36 @@ public abstract class Tablero {
 				}
 			}
 		}
+       }catch(Exception e){
+       
+       }
        
        }//fin main
        //chek jake-------------------------------------------------------------------------------
-       private static String checkForCheckOrMate(String plyColor){ //chekeo de ganador o Jaque
+       private static String checkForCheckOrMate(String jugadorColor){ //chekeo de ganador o Jaque
 		for(int kingY = 0; kingY < 9; kingY++){
 			for(int kingX = 0; kingX < 9; kingX++){
 				Cuadro kingSquare = tablero[kingY][kingX];
 				
 				String kingColor;
-				if(plyColor == "blanco"){
+				if(jugadorColor == "blanco"){
 					kingColor = "negro";
 				}
 				else{ //black
 					kingColor = "blanco";
 				}
 				
-				if((kingSquare.getTipo() == "king") && (kingSquare.getColor() == kingColor)){
+				if((kingSquare.getTipo() == "rey") && (kingSquare.getColor() == kingColor)){
 					
 					for(int threatY = 0; threatY < 9; threatY++){
 						for(int threatX = 0; threatX < 9; threatX++){
 							Cuadro threatSquare = tablero[threatY][threatX];
 							
-							if((threatSquare.getTipo() != "blank") && (threatSquare.getColor() == plyColor)){
+							if((threatSquare.getTipo() != "blank") && (threatSquare.getColor() == jugadorColor)){
 								int[] moveFrom = {threatX, threatY};
 								int[] moveTo = {kingX, kingY};
 							
-								if(threatSquare.checkMovimiento(moveFrom, moveTo, plyColor, true)){
+								if(threatSquare.checkMovimiento(moveFrom, moveTo, jugadorColor, true)){
 									return "check";
 								}
 							}
