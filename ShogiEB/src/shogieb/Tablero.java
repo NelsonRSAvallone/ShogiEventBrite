@@ -2,6 +2,8 @@
 package shogieb;
 
 import java.util.Scanner;
+import piezas.Alfil;
+import piezas.Lancero;
 import piezas.Peon;
 import piezas.Torre;
 
@@ -25,27 +27,26 @@ public abstract class Tablero {
 			}
 		}   
             
-            
-        //PINTA PEONES peones
+            		
+		//Pintado de piezas
 		for(int i = 0; i < 9; i++){
 			tablero[2][i] = new Peon("negro");
-		}
-
-		
-		//peones
-		for(int i = 0; i < 9; i++){
 			tablero[6][i] = new Peon("blanco");
-		}
-                //pintar torres
-                for (int i = 0; i < 10; i++) {
+                        //torres
                         tablero[1][1]= new Torre("negro");
-                }
-                for (int i = 0; i < 10; i++) {
                         tablero[7][7]= new Torre("blanco");
-                }
-               
-        
-        }
+                        //Alfiles
+                        tablero[1][7]= new Alfil("negro");
+                        tablero[7][1]= new Alfil("blanco");
+                        //Lanceros negros
+                        tablero[0][0]= new Lancero("negro");
+                        tablero[0][8]= new Lancero("negro");
+                        //Lanceros blancos
+                        tablero[8][0]= new Lancero("blanco");
+                        tablero[8][8]= new Lancero("blanco");
+                        
+		}
+        }      
 
         //el valor de prevNombre puede ser seteado a null 
 	private static String getNombre(int jugadorNum, String prevName){ 
