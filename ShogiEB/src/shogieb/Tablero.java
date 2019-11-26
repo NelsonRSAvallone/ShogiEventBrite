@@ -3,6 +3,7 @@ package shogieb;
 
 import java.util.Scanner;
 import piezas.Alfil;
+import piezas.Caballero;
 import piezas.Lancero;
 import piezas.Peon;
 import piezas.Rey;
@@ -48,6 +49,12 @@ public abstract class Tablero {
                         //Rey
                         tablero[0][4]=new Rey ("negro");
                         tablero[8][4]=new Rey ("blanco");
+                        //Caballero negros
+                        tablero[0][1]= new Caballero("negro");
+                        tablero[0][7]= new Caballero("negro");
+                        //Caballoero Blaco
+                        tablero[8][1]= new Caballero("blanco");
+                        tablero[8][7]= new Caballero("blanco");
 		}
         }      
 
