@@ -4,6 +4,8 @@ package shogieb;
 import java.util.Scanner;
 import piezas.Alfil;
 import piezas.Caballero;
+import piezas.GenOro;
+import piezas.GenPlata;
 import piezas.Lancero;
 import piezas.Peon;
 import piezas.Rey;
@@ -55,6 +57,18 @@ public abstract class Tablero {
                         //Caballoero Blaco
                         tablero[8][1]= new Caballero("blanco");
                         tablero[8][7]= new Caballero("blanco");
+                        //General de Plata Negro
+                        tablero[0][2]= new GenPlata("negro");
+                        tablero[0][6]= new GenPlata("negro");
+                        //General de Plata Blanco
+                        tablero[8][2]= new GenPlata("blanco");
+                        tablero[8][6]= new GenPlata("blanco");
+                        //General de Oro Negro
+                        tablero[0][3]= new GenOro("negro");
+                        tablero[0][5]= new GenOro("negro");
+                        //General de Oro Blanco
+                        tablero[8][3]= new GenOro("blanco");
+                        tablero[8][5]= new GenOro("blanco");
 		}
         }      
 
